@@ -83,7 +83,6 @@ form {
   color: #003dac;
   letter-spacing: 2px;
   text-transform: uppercase;
-  /* Added text animation */
   animation: titleAnimation 3s ease-in-out infinite alternate;
 }
 @keyframes titleAnimation {
@@ -159,7 +158,7 @@ p {
   border: none;
 }
 
-.email,
+.email-1,
 #input {
   width: 400px;
   padding: 5px 10px;

@@ -5,6 +5,7 @@ import Girlies from "./main/Girlies.png";
 import Necklace from "./main/newcklace.png";
 import Nonu from "./main/nonu.jpg";
 import Jewellery from "./main/jewellery.jpg";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const SignupForm = () => {
     if (!validatePhone()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/submit", {
+      const res = await fetch("http://localhost:5100/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +59,7 @@ const SignupForm = () => {
   };
 
   return (
-    <div class="page-wrapper">
+    <div className="page-wrapper">
       <video autoPlay muted loop id="backvid">
         <source src={VideoFile} type="video/mp4" />
       </video>
@@ -133,7 +134,7 @@ const SignupForm = () => {
           <input
             type="password"
             placeholder="Enter your Password"
-            className="email"
+            className="email-1"
             name="password"
             required
             maxLength="8"
@@ -172,16 +173,20 @@ const SignupForm = () => {
 
           <br />
           <span className="eveee">
-            Already have an account ?
-            <a href="login.html" style={{ textDecoration: "none" }}>
+            Already have an account?
+            <Link to="/login" style={{ textDecoration: "none" }}>
               <b>LOGIN</b>
-            </a>
+            </Link>
           </span>
         </div>
       </form>
 
       <div id="carousel">
         <div className="carousel-track">
+          <img src={Girlies} alt="Girlies" />
+          <img src={Necklace} alt="Necklace" />
+          <img src={Nonu} alt="Nonu" />
+          <img src={Jewellery} alt="Jewellery" />
           <img src={Girlies} alt="Girlies" />
           <img src={Necklace} alt="Necklace" />
           <img src={Nonu} alt="Nonu" />
