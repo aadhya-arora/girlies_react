@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signup.css";
-import VideoFile from "./background/NEELE NEELE AMBAR PE.mp4";
+import VideoFile from "./backgrounds/NEELE NEELE AMBAR PE.mp4";
 import Girlies from "./main/Girlies.png";
 import Necklace from "./main/newcklace.png";
 import Nonu from "./main/nonu.jpg";
@@ -64,133 +64,135 @@ const SignupForm = () => {
         <source src={VideoFile} type="video/mp4" />
       </video>
 
-      <form
-        onSubmit={handleSubmit}
-        id="signup-form"
-        style={{ borderRadius: "30px" }}
-      >
-        <div className="login">
-          <p id="title">SIGNUP</p>
-          <div className="name">
-            <div id="FIRSTNAME">
-              <p>
-                <b>Name</b>
-              </p>
-              <input
-                type="text"
-                placeholder="Enter Your Name"
-                className="text"
-                required
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
+      <div className="signupform-container">
+        <form
+          onSubmit={handleSubmit}
+          id="signup-form"
+          style={{ borderRadius: "30px" }}
+        >
+          <div className="login-2">
+            <p id="title1">SIGNUP</p>
+            <div className="name3">
+              <div id="FIRSTNAME">
+                <p className="p">
+                  <b>Name</b>
+                </p>
+                <input
+                  type="text"
+                  placeholder="Enter Your Name"
+                  className="text"
+                  required
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div id="LASTNAME">
+                <p className="p">
+                  <b>Email</b>
+                </p>
+                <input
+                  type="email"
+                  placeholder="Enter Your Email"
+                  className="text"
+                  required
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
 
-            <div id="LASTNAME">
-              <p>
-                <b>Email</b>
-              </p>
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="text"
-                required
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+            <p className="phone">
+              <b>Phone Number</b>
+            </p>
+            <input
+              type="tel"
+              placeholder="9027xxxxxx"
+              id="input"
+              name="phone"
+              value={formData.phone}
+              onChange={(e) => {
+                e.target.value = e.target.value
+                  .replace(/[^0-9]/g, "")
+                  .slice(0, 10);
+                handleChange(e);
+              }}
+              onBlur={validatePhone}
+              required
+            />
 
-          <p className="phone">
-            <b>Phone Number</b>
-          </p>
-          <input
-            type="tel"
-            placeholder="9027xxxxxx"
-            id="input"
-            name="phone"
-            value={formData.phone}
-            onChange={(e) => {
-              e.target.value = e.target.value
-                .replace(/[^0-9]/g, "")
-                .slice(0, 10);
-              handleChange(e);
-            }}
-            onBlur={validatePhone}
-            required
-          />
+            {error && (
+              <div id="error" className="error-message">
+                {error}
+              </div>
+            )}
 
-          {error && (
-            <div id="error" className="error-message">
-              {error}
-            </div>
-          )}
+            <p className="pass">
+              <b>Password</b>
+            </p>
+            <input
+              type="password"
+              placeholder="Enter your Password"
+              className="email-1"
+              name="password"
+              required
+              maxLength="8"
+              minLength="8"
+              value={formData.password}
+              onChange={handleChange}
+            />
 
-          <p className="pass">
-            <b>Password</b>
-          </p>
-          <input
-            type="password"
-            placeholder="Enter your Password"
-            className="email-1"
-            name="password"
-            required
-            maxLength="8"
-            minLength="8"
-            value={formData.password}
-            onChange={handleChange}
-          />
+            <p className="sign_as">
+              <b>Sign Up as</b>
+            </p>
+            <select
+              id="sign_as"
+              name="sign_as"
+              value={formData.sign_as}
+              onChange={handleChange}
+            >
+              <option value="admin">Admin</option>
+              <option value="delivery">Delivery Partner</option>
+              <option value="buyer">Buyer</option>
+            </select>
 
-          <p className="sign_as">
-            <b>Sign Up as</b>
-          </p>
-          <select
-            id="sign_as"
-            name="sign_as"
-            value={formData.sign_as}
-            onChange={handleChange}
-          >
-            <option value="admin">Admin</option>
-            <option value="delivery">Delivery Partner</option>
-            <option value="buyer">Buyer</option>
-          </select>
+            <br />
+            <button id="animated-button" type="submit">
+              <svg viewBox="0 0 24 24" className="arr-2">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+              <span className="text">
+                <b>SIGNUP</b>
+              </span>
+              <span className="circle"></span>
+              <svg viewBox="0 0 24 24" className="arr-1">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+            </button>
 
-          <br />
-          <button id="animated-button" type="submit">
-            <svg viewBox="0 0 24 24" className="arr-2">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span className="text">
-              <b>SIGNUP</b>
+            <br />
+            <span className="eveee">
+              Already have an account?
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <b>LOGIN</b>
+              </Link>
             </span>
-            <span className="circle"></span>
-            <svg viewBox="0 0 24 24" className="arr-1">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
+          </div>
+        </form>
 
-          <br />
-          <span className="eveee">
-            Already have an account?
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <b>LOGIN</b>
-            </Link>
-          </span>
-        </div>
-      </form>
-
-      <div id="carousel">
-        <div className="carousel-track">
-          <img src={Girlies} alt="Girlies" />
-          <img src={Necklace} alt="Necklace" />
-          <img src={Nonu} alt="Nonu" />
-          <img src={Jewellery} alt="Jewellery" />
-          <img src={Girlies} alt="Girlies" />
-          <img src={Necklace} alt="Necklace" />
-          <img src={Nonu} alt="Nonu" />
-          <img src={Jewellery} alt="Jewellery" />
+        <div id="carousel">
+          <div className="carousel-track">
+            <img src={Girlies} alt="Girlies" />
+            <img src={Necklace} alt="Necklace" />
+            <img src={Nonu} alt="Nonu" />
+            <img src={Jewellery} alt="Jewellery" />
+            <img src={Girlies} alt="Girlies" />
+            <img src={Necklace} alt="Necklace" />
+            <img src={Nonu} alt="Nonu" />
+            <img src={Jewellery} alt="Jewellery" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import VideoFile from "./background/NEELE NEELE AMBAR PE.mp4";
+import VideoFile from "./backgrounds/NEELE NEELE AMBAR PE.mp4";
 import "./login.css";
 
 const Login = () => {
@@ -54,53 +54,54 @@ const Login = () => {
       <video autoPlay muted loop id="backvid">
         <source src={VideoFile} type="video/mp4" />
       </video>
+      <div className="login-form">
+        <header className="header">LOGIN</header>
+        <form onSubmit={handleSubmit}>
+          <div className="login-1">
+            <p className="name-1">Username</p>
+            <input
+              type="text"
+              placeholder="Enter Your Username"
+              className="email"
+              id="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
 
-      <header>LOGIN</header>
-      <form onSubmit={handleSubmit}>
-        <div className="login-1">
-          <p className="name-1">Username</p>
-          <input
-            type="text"
-            placeholder="Enter Your Username"
-            className="email"
-            id="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
+            <p className="name-1">Password</p>
+            <input
+              type="password"
+              placeholder="Enter your Password"
+              className="email"
+              maxLength="8"
+              minLength="8"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
 
-          <p className="name">Password</p>
-          <input
-            type="password"
-            placeholder="Enter your Password"
-            className="email"
-            maxLength="8"
-            minLength="8"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+            <br />
+            <button className="animated-button2" type="submit">
+              <span className="text2">Login</span>
+            </button>
 
-          <br />
-          <button className="animated-button" type="submit">
-            <span className="text">Login</span>
-          </button>
+            <span className="signup-text">
+              Don’t have an account?
+              <b>
+                <Link to="/signup" style={{ textDecoration: "none" }}>
+                  {" "}
+                  SIGNUP
+                </Link>
+              </b>
+            </span>
+          </div>
+        </form>
 
-          <span className="signup-text">
-            Don’t have an account?
-            <b>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                {" "}
-                SIGNUP
-              </Link>
-            </b>
-          </span>
+        <div id="error1" style={{ color: "red", textAlign: "center" }}>
+          {error}
         </div>
-      </form>
-
-      <div id="error1" style={{ color: "red", textAlign: "center" }}>
-        {error}
       </div>
     </div>
   );

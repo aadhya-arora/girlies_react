@@ -15,12 +15,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import Signup from "./components/signupForm";
+import MainPage from "./components/main";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Signup />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
