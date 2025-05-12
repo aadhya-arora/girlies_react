@@ -119,7 +119,7 @@ const MainPage = () => {
           <div className="dropdown-content">
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-            <Link to="">Review Page</Link>
+            <Link to="/review">Review Page</Link>
           </div>
         </div>
       </nav>
@@ -129,7 +129,7 @@ const MainPage = () => {
         <p className="t1">Experience Our Design Showcase</p>
 
         <div id="wappper">
-          <a href="/Accessories.html" style={{ textDecoration: "none" }}>
+          <Link to="/accessories" style={{ textDecoration: "none" }}>
             <div className="card">
               <img src={maal} alt="Accessories" />
               <div className="info">
@@ -140,7 +140,7 @@ const MainPage = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
 
           <a href="/frag.html" style={{ textDecoration: "none" }}>
             <div className="card">
@@ -206,35 +206,35 @@ const MainPage = () => {
       </a>
 
       <hr className="part" />
-      <footer>
-        <div className="footer-heading">Connect</div>
-        <hr className="line" />
-        <div className="foot">
-          <div className="c-hub">
-            <p className="c-heading">Contact Hub</p>
-            <a className="c-content">Contact Us</a>
-            <a className="c-content">Find Us</a>
+      <footer className="footer1">
+        <div className="footer-heading1">Connect</div>
+        <hr className="line1" />
+        <div className="foot1">
+          <div className="c-hub1">
+            <p className="c-heading1">Contact Hub</p>
+            <a className="c-content1">Contact Us</a>
+            <a className="c-content1">Find Us</a>
           </div>
 
-          <div className="c-hub">
-            <p className="c-heading">Services</p>
-            <a className="c-content">FAQ</a>
-            <a className="c-content">Track your order</a>
-            <a className="c-content">Make a return</a>
-            <a className="c-content">Servicing and warranty</a>
-            <a className="c-content">Catalog</a>
-            <a className="c-content">Instruction manual</a>
+          <div className="c-hub1">
+            <p className="c-heading1">Services</p>
+            <a className="c-content1">FAQ</a>
+            <a className="c-content1">Track your order</a>
+            <a className="c-content1">Make a return</a>
+            <a className="c-content1">Servicing and warranty</a>
+            <a className="c-content1">Catalog</a>
+            <a className="c-content1">Instruction manual</a>
           </div>
 
-          <div className="c-hub">
-            <p className="c-heading">Our Maison</p>
-            <a className="c-content">Press</a>
-            <a className="c-content">Corporate information</a>
+          <div className="c-hub1">
+            <p className="c-heading1">Our Maison</p>
+            <a className="c-content1">Press</a>
+            <a className="c-content1">Corporate information</a>
           </div>
 
-          <div className="c-hub">
+          <div className="c-hub1">
             <p className="c-heading1">Stay up to date</p>
-            <div className="connect">
+            <div className="connect1">
               <a
                 href="https://wa.me/7626929633"
                 style={{ textDecoration: "none" }}
@@ -263,10 +263,10 @@ const MainPage = () => {
           </div>
         </div>
 
-        <hr className="line" />
-        <div className="mapping">
-          <div className="newsletter">
-            <p className="n-heading">Subscribe to our newsletter</p>
+        <hr className="line1" />
+        <div className="mapping1">
+          <div className="newsletter1">
+            <p className="n-heading1">Subscribe to our newsletter</p>
             <input
               type="email"
               placeholder="Enter your email"
@@ -281,7 +281,7 @@ const MainPage = () => {
           </div>
           <iframe
             title="Girlies Store Location"
-            className="location"
+            className="location1"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.174971799996!2d76.65720287502891!3d30.5160910960714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc32344a6e2d7%3A0x81b346dee91799ca!2sChitkara%20University!5e0!3m2!1sen!2sin!4v1746442245297!5m2!1sen!2sin"
             width="600"
             height="450"

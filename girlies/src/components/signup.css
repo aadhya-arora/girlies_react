@@ -24,7 +24,8 @@
   padding-right: 20px;
 }
 
-input {
+.input,
+#input {
   margin-left: 31rem;
   padding: 6px 22px;
   border-radius: 10px;

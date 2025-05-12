@@ -16,7 +16,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import Signup from "./components/signupForm";
 import MainPage from "./components/main";
-
+import ReviewForm from "./components/review";
+import Accessories from "./components/accessories";
+import Cart from "./components/cart";
+import Wishlist from "./components/wishlist";
+import Checkout from "./components/address";
+import OrderSummary from "./components/payment";
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +29,12 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/review" element={<ReviewForm />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/address" element={<Checkout />} />
+        <Route path="/checkout" element={<OrderSummary />} />
       </Routes>
     </BrowserRouter>
   );

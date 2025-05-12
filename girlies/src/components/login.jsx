@@ -38,10 +38,11 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message); // Login successful
-        navigate("/main");
+        localStorage.setItem("username", formData.username);
+        alert(data.message);
+        navigate("/");
       } else {
-        setError(data.message); // Incorrect username or password
+        setError(data.message);
       }
     } catch (err) {
       console.error("Login error:", err);

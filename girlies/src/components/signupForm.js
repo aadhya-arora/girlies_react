@@ -80,7 +80,7 @@ const SignupForm = () => {
                 <input
                   type="text"
                   placeholder="Enter Your Name"
-                  className="text"
+                  className="text input"
                   required
                   name="name"
                   value={formData.name}
@@ -95,7 +95,7 @@ const SignupForm = () => {
                 <input
                   type="email"
                   placeholder="Enter Your Email"
-                  className="text"
+                  className="text input"
                   required
                   name="email"
                   value={formData.email}
@@ -135,7 +135,7 @@ const SignupForm = () => {
             <input
               type="password"
               placeholder="Enter your Password"
-              className="email-1"
+              className="email-1 input"
               name="password"
               required
               maxLength="8"
