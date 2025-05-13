@@ -24,6 +24,7 @@ import Checkout from "./components/address";
 import OrderSummary from "./components/payment";
 import Delivery from "./components/delivery";
 import Orders from "./components/delivery_orders";
+import AdminDashboard from "./components/admin";
 function App() {
   return (
     <BrowserRouter>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/checkout" element={<OrderSummary />} />
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/deliver_orders" element={<Orders />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );

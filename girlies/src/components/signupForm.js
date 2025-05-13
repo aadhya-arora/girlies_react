@@ -153,7 +153,6 @@ const SignupForm = () => {
               value={formData.sign_as}
               onChange={handleChange}
             >
-              <option value="admin">Admin</option>
               <option value="delivery">Delivery Partner</option>
               <option value="buyer">Buyer</option>
             </select>

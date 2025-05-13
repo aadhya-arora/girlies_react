@@ -92,11 +92,11 @@ const ReviewForm = () => {
               />
 
               <p className="name-5">"Give Us a STAR (If We Earned It 😉)"</p>
-              <div className="rating">
+              <div className="rating_review">
                 {[...Array(5)].map((_, i) => (
                   <span
                     key={i}
-                    className="material-symbols-outlined like"
+                    className="material-symbols-outlined like_review"
                     style={{
                       color: i < rating ? "gold" : "black",
                       fontVariationSettings: `'FILL' ${i < rating ? 1 : 0}`,

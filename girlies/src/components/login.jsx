@@ -45,6 +45,8 @@ const Login = () => {
           navigate("/delivery");
         } else if (data.sign_as === "buyer") {
           navigate("/");
+        } else if (data.sign_as === "admin") {
+          navigate("/admin");
         } else {
           navigate("/");
         }

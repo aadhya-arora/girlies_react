@@ -122,13 +122,13 @@
   border-radius: 20px;
 }
 
-.rating {
+.rating_review {
   cursor: pointer;
   display: flex;
   flex-direction: row;
 }
 
-.like {
+.like_review {
   font-variation-settings: "FILL" 0;
   color: black;
   font-size: 20px;

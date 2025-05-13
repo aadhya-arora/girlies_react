@@ -57,7 +57,6 @@ app.post("/login", async (req, res) => {
 
     console.log("User found:", user);
 
-    // Update this part of your /login route
     if (user) {
       res
         .status(200)
@@ -235,6 +234,28 @@ app.post("/mark-delivered", async (req, res) => {
   } catch (err) {
     console.error("🔥 Delivery update error:", err);
     res.status(500).json({ message: "Failed to update delivery status." });
+  }
+});
+
+app.get("/reviews", async (req, res) => {
+  try {
+    const collection = await dbconnection1(); // reviews DB
+    const reviews = await collection.find({}).toArray();
+    res.json(reviews);
+  } catch (err) {
+    console.error("Error fetching reviews:", err);
+    res.status(500).json({ message: "Failed to fetch reviews" });
+  }
+});
+
+app.get("/delivered-orders", async (req, res) => {
+  try {
+    const collection = await dbconnection5();
+    const delivered = await collection.find({}).toArray();
+    res.json({ delivered });
+  } catch (err) {
+    console.error("Error fetching delivered orders:", err);
+    res.status(500).json({ message: "Failed to load delivered orders" });
   }
 });
 
