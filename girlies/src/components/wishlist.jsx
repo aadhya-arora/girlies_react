@@ -7,7 +7,6 @@ const Wishlist = () => {
   const navigate = useNavigate();
   const [wishlistItems, setWishlistItems] = useState([]);
 
-  // Load wishlist from localStorage
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlistItems(storedWishlist);
@@ -56,7 +55,6 @@ const Wishlist = () => {
       cart.push(item);
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      // ✅ Add item to MongoDB
       try {
         await fetch("http://localhost:5100/cart/add", {
           method: "POST",

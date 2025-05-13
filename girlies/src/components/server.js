@@ -167,7 +167,7 @@ app.post("/place-order", async (req, res) => {
   }
 
   try {
-    const collection = await dbconnection4(); // 👈 this saves to dbconnection4
+    const collection = await dbconnection4();
     await collection.insertOne({
       items,
       total,
@@ -226,10 +226,7 @@ app.post("/mark-delivered", async (req, res) => {
     const deleteResult = await pendingCollection.deleteOne({
       _id: new ObjectId(orderId),
     });
-    console.log(
-      "🗑️ Order deleted from dbconnection4:",
-      deleteResult.deletedCount
-    );
+    console.log("Order deleted from dbconnection4:", deleteResult.deletedCount);
 
     res.status(200).json({ message: "Order marked as delivered." });
   } catch (err) {
