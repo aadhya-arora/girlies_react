@@ -22,6 +22,8 @@ import Cart from "./components/cart";
 import Wishlist from "./components/wishlist";
 import Checkout from "./components/address";
 import OrderSummary from "./components/payment";
+import Delivery from "./components/delivery";
+import Orders from "./components/delivery_orders";
 function App() {
   return (
     <BrowserRouter>
@@ -35,6 +37,8 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/address" element={<Checkout />} />
         <Route path="/checkout" element={<OrderSummary />} />
+        <Route path="/delivery" element={<Delivery />} />
+        <Route path="/deliver_orders" element={<Orders />} />
       </Routes>
     </BrowserRouter>
   );

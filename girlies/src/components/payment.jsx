@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./payment.css";
 
 const OrderSummary = () => {
+  const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [subtotal, setSubtotal] = useState(0);
@@ -37,6 +38,11 @@ const OrderSummary = () => {
   }, []);
 
   const handlePlaceOrder = async () => {
+    if (!paymentMethod) {
+      alert("Please select a payment method.");
+      return;
+    }
+
     const orderData = {
       items: cart.map((item) => `${item.name} (x${item.quantity || 1})`),
       total: `${total.toFixed(2)} INR`,
@@ -44,20 +50,27 @@ const OrderSummary = () => {
     };
 
     try {
-      const response = await fetch("/place-order", {
+      console.log("📦 Sending order:", orderData); // optional for debugging
+
+      const response = await fetch("http://localhost:5100/place-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
       });
 
       const data = await response.json();
-      alert(data.message);
+
+      if (!response.ok) {
+        throw new Error(data.message || "Server error");
+      }
+
+      alert(data.message || "Order placed successfully.");
       localStorage.removeItem("cart");
       localStorage.removeItem("cartItems");
-      window.location.href = "main.html";
+      window.location.href = "/"; // ✅ make sure this route exists
     } catch (err) {
-      console.error("Order error:", err);
-      alert("Failed to place order.");
+      console.error("❌ Order error:", err);
+      alert("Failed to place order: " + err.message);
     }
   };
 
@@ -121,9 +134,9 @@ const OrderSummary = () => {
         <button
           className="placeOrder"
           onClick={handlePlaceOrder}
-          disabled={cart.length === 0}
+          disabled={cart.length === 0 || loading}
         >
-          Place Order
+          {loading ? "Placing..." : "Place Order"}
         </button>
       </div>
     </div>

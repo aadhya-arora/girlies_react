@@ -40,9 +40,14 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem("username", formData.username);
         alert(data.message);
-        navigate("/");
-      } else {
-        setError(data.message);
+
+        if (data.sign_as === "delivery") {
+          navigate("/delivery");
+        } else if (data.sign_as === "buyer") {
+          navigate("/");
+        } else {
+          navigate("/");
+        }
       }
     } catch (err) {
       console.error("Login error:", err);
