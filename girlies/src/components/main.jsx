@@ -41,36 +41,39 @@ const MainPage = () => {
           <h1 className="text-light">Girlies</h1>
         </div>
         <div className="media-links">
-          <div className="set">
+          <div className="set_main">
             <a
               href="https://wa.me/7626929633"
               style={{ textDecoration: "none" }}
             >
-              <FaWhatsapp className="link0" style={{ fontSize: "24px" }} />
+              <FaWhatsapp className="link0_main" style={{ fontSize: "24px" }} />
             </a>
           </div>
-          <div className="set">
+          <div className="set_main">
             <a
               href="https://x.com/aadhu_2708"
               style={{ textDecoration: "none" }}
             >
-              <FaTwitter className="link" style={{ fontSize: "24px" }} />
+              <FaTwitter className="link_main" style={{ fontSize: "24px" }} />
             </a>
           </div>
-          <div className="set">
+          <div className="set_main">
             <a
               href="https://www.instagram.com/aadhu2708/"
               style={{ textDecoration: "none" }}
             >
-              <FaInstagram className="link2" style={{ fontSize: "24px" }} />
+              <FaInstagram
+                className="link2_main"
+                style={{ fontSize: "24px" }}
+              />
             </a>
           </div>
-          <div className="set">
+          <div className="set_main">
             <a
               href="https://www.facebook.com/profile.php?id=61550942587569"
               style={{ textDecoration: "none" }}
             >
-              <FaFacebook className="link1" style={{ fontSize: "24px" }} />
+              <FaFacebook className="link1_main" style={{ fontSize: "24px" }} />
             </a>
           </div>
         </div>

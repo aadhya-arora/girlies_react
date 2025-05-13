@@ -173,42 +173,42 @@ body {
   font-weight: 300;
 }
 
-.link0 {
+.link0_main {
   color: #02122b;
   margin-left: 8.5px;
   margin-top: 6px;
 }
 
-.link {
+.link_main {
   color: #02122b;
   margin-left: 7px;
   margin-top: 7px;
 }
 
-.link1 {
+.link1_main {
   color: #02122b;
   margin-left: 7.5px;
   margin-top: 7px;
 }
 
-.link2 {
+.link2_main {
   color: #02122b;
   margin-left: 7px;
   margin-top: 6px;
 }
 
-.link0:hover,
-.link1:hover,
-.link:hover,
-.link2:hover {
+.link0_main:hover,
+.link1_main:hover,
+.link_main:hover,
+.link2_main:hover {
   color: #c1d5f9;
 }
 
-.set {
+.set_main {
   display: inline-block;
   height: 37px;
   width: 37px;
-  background-color: #83aaf2;
+  background-color: white;
   /* color: #96151e; */
   border-radius: 20px;
   margin-left: 18px;
