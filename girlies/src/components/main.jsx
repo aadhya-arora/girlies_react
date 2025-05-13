@@ -102,7 +102,7 @@ const MainPage = () => {
             </span>
             <span className="icon-name">About</span>
           </a>
-          <a href="help.html">
+          <Link to="/help">
             <span
               className="material-symbols-outlined icon2"
               style={{ fontSize: "24px" }}
@@ -110,7 +110,7 @@ const MainPage = () => {
               box
             </span>
             <span className="icon-name">Contact</span>
-          </a>
+          </Link>
         </div>
         <div className="dropdown">
           <button className="dropbtn">

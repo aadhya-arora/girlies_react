@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./delivery.css";
 
 const Delivery = () => {
@@ -9,10 +10,10 @@ const Delivery = () => {
     <div>
       <nav className="del_nav">
         <a className="heading_del">Delivery</a>
-        <a href="help.html" className="contact_del">
+        <Link to="/help" className="contact_del">
           Contact Us
-        </a>
-        <a href="explore.html" className="about">
+        </Link>
+        <a href="#" className="about">
           About Us
         </a>
         <a href="#" className="order">

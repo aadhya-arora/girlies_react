@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./admin.css"; // Uses your uploaded admin styles
+import "./admin.css";
 import profile from "./backgrounds/logo.jpg";
 import { Link } from "react-router-dom";
 
@@ -7,8 +7,17 @@ const AdminDashboard = () => {
   const [orders, setOrders] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [delivered, setDelivered] = useState([]);
+  const [subscribers, setSubscribers] = useState([]);
 
   useEffect(() => {
+    fetch("http://localhost:5100/get-subscribers")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Subscribers fetched:", data);
+        setSubscribers(data);
+      })
+      .catch((err) => console.error("Failed to load subscribers:", err));
+
     fetch("http://localhost:5100/delivered-orders")
       .then((res) => res.json())
       .then((data) => {
@@ -51,6 +60,9 @@ const AdminDashboard = () => {
           <a href="#reviews">
             <span className="icon-name">Reviews</span>
           </a>
+          <a href="#subscribers">
+            <span className="icon-name">Subscriber</span>
+          </a>
           <Link to="/signup">
             <span className="icon-name">Log Out</span>
           </Link>
@@ -67,7 +79,7 @@ const AdminDashboard = () => {
           height: "100vh",
         }}
       >
-        <section id="delivered_orders">
+        <section id="delivered_orders" style={{ marginTop: "3rem" }}>
           <h2 className="h2_admin">Delivered Orders</h2>
           {delivered.length === 0 ? (
             <p>No delivered orders found.</p>
@@ -101,7 +113,7 @@ const AdminDashboard = () => {
           )}
         </section>
 
-        <section id="pending_orders">
+        <section id="pending_orders" style={{ marginTop: "3rem" }}>
           <h2 className="h2_admin">Orders Yet To Be Delivered</h2>
           {orders.length === 0 ? (
             <p>No orders found.</p>
@@ -135,7 +147,6 @@ const AdminDashboard = () => {
           )}
         </section>
 
-        {/* Reviews Section */}
         <section style={{ marginTop: "3rem" }} id="reviews">
           <h2 className="h2_admin">User Submitted Reviews</h2>
           {reviews.length === 0 ? (
@@ -157,6 +168,34 @@ const AdminDashboard = () => {
                     <td>{r.review}</td>
                     <td>{r.improvement}</td>
                     <td>{r.rating}/5</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </section>
+
+        <section style={{ marginTop: "3rem" }} id="subscribers">
+          <h2 className="h2_admin">Subscribers</h2>
+          {subscribers.length === 0 ? (
+            <p>No subscribers found.</p>
+          ) : (
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Subscribed At</th>
+                </tr>
+              </thead>
+              <tbody>
+                {subscribers.map((sub, i) => (
+                  <tr key={i}>
+                    <td>{sub.email}</td>
+                    <td>
+                      {sub.subscribedAt
+                        ? new Date(sub.subscribedAt).toLocaleString()
+                        : "N/A"}
+                    </td>
                   </tr>
                 ))}
               </tbody>

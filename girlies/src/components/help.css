@@ -1,0 +1,203 @@
+.body_help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #02122b;
+}
+
+/* Hero Section */
+.hero_help {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px 0px;
+}
+
+.hero-image_help {
+  width: 100%;
+  /* height: 20%; */
+  margin-left: 1rem;
+  /* margin-right: 10rem; */
+  /* border-radius: 8px; */
+}
+
+.hero-overlay_help {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  /* transform: translate(-50%, -50%); */
+  /* background-color: rgba(2, 18, 43, 0.6); */
+  color: white;
+  /* text-shadow:#02122B 0px 0px 5px; */
+  /* padding: 20px 40px; */
+  /* border-radius: 8px; */
+  /* text-align: center; */
+}
+
+.hero-overlay_help h1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+/* Contact Info Section */
+.contact-info_help {
+  text-align: left;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Footer */
+.footer_help {
+  text-align: center;
+  margin-top: 30px;
+  padding: 1;
+}
+
+.card_help {
+  width: 300px;
+  height: 250px;
+  padding: 20px;
+  margin-top: 12px;
+  background: #fff;
+  border: 6px solid #02122b;
+  box-shadow: 12px 12px 0 #02122b;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card_help:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 17px 17px 0 #02122b;
+}
+
+.card__title_help {
+  font-size: 32px;
+  font-weight: 900;
+  color: #02122b;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__title_help::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 3px;
+  background-color: #02122b;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.card_help:hover .card__title_help::after {
+  transform: translateX(0);
+}
+
+.card__content_help {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.card__form_help {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input_help {
+  padding: 10px;
+  border: 3px solid #02122b;
+  font-size: 16px;
+  font-family: inherit;
+  transition: transform 0.3s;
+  width: 28%; /* Adjust for padding and border */
+}
+
+.input_help:focus {
+  outline: none;
+  transform: scale(1.05);
+  background-color: #02122b;
+  color: #ffffff;
+}
+
+.card__button_help {
+  border: 3px solid #000;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  left: 20%;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  width: 25%;
+  height: 100%;
+  margin-left: -165px;
+}
+
+.card__button_help::before {
+  content: "Sure?";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background-color: #0044c3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.card__button_help:hover::before {
+  transform: translateY(0);
+}
+
+.card__button_help:active {
+  transform: scale(0.95);
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(2px, 2px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  gap: 18rem;
+}
+.parent h3 {
+  margin-left: -2px;
+  font-size: xx-large;
+}

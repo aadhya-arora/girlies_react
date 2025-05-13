@@ -7,6 +7,7 @@ const dbconnection2 = require("./mongodb2");
 const dbconnection3 = require("./mongodb3");
 const dbconnection4 = require("./mongodb4");
 const dbconnection5 = require("./mongodb5");
+const dbconnection6 = require("./mongodb6");
 const { ObjectId } = require("mongodb");
 
 const app = express();
@@ -239,7 +240,7 @@ app.post("/mark-delivered", async (req, res) => {
 
 app.get("/reviews", async (req, res) => {
   try {
-    const collection = await dbconnection1(); // reviews DB
+    const collection = await dbconnection1();
     const reviews = await collection.find({}).toArray();
     res.json(reviews);
   } catch (err) {
@@ -256,6 +257,41 @@ app.get("/delivered-orders", async (req, res) => {
   } catch (err) {
     console.error("Error fetching delivered orders:", err);
     res.status(500).json({ message: "Failed to load delivered orders" });
+  }
+});
+
+app.post("/subscribe", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email is required." });
+  }
+
+  try {
+    const collection = await dbconnection6();
+    const existing = await collection.findOne({ email });
+
+    if (existing) {
+      return res.status(400).json({ message: "Email already subscribed." });
+    }
+
+    await collection.insertOne({ email, subscribedAt: new Date() });
+    console.log("New subscriber:", email);
+    res.status(200).json({ message: "Subscribed successfully!" });
+  } catch (error) {
+    console.error("Subscription error:", error);
+    res.status(500).json({ message: "Failed to subscribe." });
+  }
+});
+
+app.get("/get-subscribers", async (req, res) => {
+  try {
+    const collection = await dbconnection6();
+    const subscribers = await collection.find({}).toArray();
+    res.json(subscribers);
+  } catch (err) {
+    console.error("Error fetching subscribers:", err);
+    res.status(500).json({ error: "Failed to fetch subscribers" });
   }
 });
 
