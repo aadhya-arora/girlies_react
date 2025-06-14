@@ -13,7 +13,7 @@ const SignupForm = () => {
     email: "",
     phone: "",
     password: "",
-    sign_as: "admin",
+    sign_as: "",
   });
 
   const [error, setError] = useState("");
@@ -153,6 +153,7 @@ const SignupForm = () => {
               value={formData.sign_as}
               onChange={handleChange}
             >
+              <option value="">Select Role</option>
               <option value="delivery">Delivery Partner</option>
               <option value="buyer">Buyer</option>
             </select>
